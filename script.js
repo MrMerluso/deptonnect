@@ -1,28 +1,11 @@
-var qrcode = new QRCode(document.getElementById("qrcode"), {
-	width : 1000,
-	height : 1000
-});
-
-function makeCode () {		
-	var elText = document.getElementById("text");
-	
-	if (!elText.value) {
-		alert("Input a text");
-		elText.focus();
-		return;
-	}
-	
-	qrcode.makeCode(elText.value);
+var form = document.getElementById("form");
+form.onsubmit = function(e) {
+	e.preventDefault();
+	var name = document.getElementById("nomb");
+	var ape = document.getElementById("ap");
+	var rut = document.getElementById("rut");
+	var ver = document.getElementById("ver");
+	var depto = document.getElementById("depto");
+	var qrcode = new QRCode(document.getElementById("qrcode"), name.value + ape.value + rut.value + ver.value + depto.value)
 }
 
-
-
-$("#text").
-	on("blur", function () {
-		makeCode();
-	}).
-	on("keydown", function (e) {
-		if (e.keyCode == 13) {
-			makeCode();
-		}
-	});
