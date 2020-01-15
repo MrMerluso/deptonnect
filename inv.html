@@ -7,8 +7,11 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+    <script src="jquery.min.js"></script>
+    <script src="qrcode.js"></script>
 
-    <form action="genQR.php" method="POST" >
+    <section id="alignment">
+    <form method="POST" id="form" onsubmit="generateQR()">
       <h1>Por favor ingrese la informacion del invitado</h1><br>
       <p>Nombre:</p>
       <input type="text" name="nomb" required><br>
@@ -21,5 +24,7 @@
       <button type="submit">Invitar!</button>
     </form>
     <div id="qrcode"></div>
+    </section>
+
   </body>
 </html>
