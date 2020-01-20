@@ -1,12 +1,13 @@
-var nombre = document.getElementById("nom");
-var apellido = document.getElementById("ap");
-var rut = document.getElementById("rut");
-var veri = document.getElementById("ver");
-var depto = document.getElementById("depto");
-var qrdata = nombre.concat(apellido, rut, veri, depto);
 var qrcode = new QRCode(document.getElementById("qrcode"));
+var list = document.getElementById("form");
 
 function generateQR(){
-	var data = qrdata.value;
-	qrcode.makeCode(qrdata)
+	var string = "";
+	var i;
+	for(i = 0; i<list.length; i++){
+		string += list[i].value + " ";
+
+	}
+	
+	qrcode.makeCode(string);
 }

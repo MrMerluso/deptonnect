@@ -8,6 +8,8 @@ body{
     margin-top: auto;
 }
 
-#BOTTOM{
-    margin-bottom: 1cm;
+#qrcode{
+    height: 1000px;
+    width: 1000px;
+    margin-top: auto;
 }
