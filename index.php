@@ -1,3 +1,4 @@
+<?php include('server.php'); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,16 +10,17 @@
   <body>
     <div id="alignment">
     <h1>Deptonnect</h1>
-    <form action="menu.php" method="POST">
+    <form action="index.php" method="POST">
+      <?php include('error.php'); ?>
       <p>Usuario</p>
       <br>
-        <input type="text"  name="uname" required>
+        <input type="text"  name="uname" >
         <br>
       <p>Contraseña</p>
        <br>
-        <input type="password"  name="pass" required>
+        <input type="password"  name="pass" >
         <br>
-      <button type="submit" >Ingresar</button>
+      <button type="submit" name="login">Ingresar</button>
     </form>
     <a href="register.php">Registrate</a>
     <h3 id="BOTTOM">¡DESCARGA NUESTRA APP!</h3>
