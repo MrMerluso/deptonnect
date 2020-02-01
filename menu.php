@@ -9,22 +9,26 @@
     <title>Menu principal</title>
 </head>
 <body>
-    <?php if(isset($_SESSION['success'])): ?>
-        <?php 
-            echo $_SESSION['success'];
-            unset($_SESSION['success']);
-         ?>
-    <?php endif ?>
 
     <?php if(isset($_SESSION['user'])): ?>
-        <section id="alignment">
-        <p>Bienvenido</p>
-        <h1>MENU PRINCIPAL</h1>
-        <a href="inv.php"><h2>Generar invitacion</h2></a><br>
-        <a href=""><h2>Reservar</h2></a><br>
-        <a href=""><h2>Pago de boletas</h2></a><br>
-        <a href="menu.php?logout='1'"><h2>Cerrar sesion</h2></a><br>
-        </section>
+        <div class="header">
+            <h1>Deptonnect</h1>
+        </div>
+        <div class="title">
+            <?php if(isset($_SESSION['success'])): ?>
+                <?php 
+                echo $_SESSION['success'];
+                unset($_SESSION['success']);
+                ?>
+            <?php endif ?>
+            <h1>MENU PRINCIPAL</h1>
+        </div>
+        <div class="container">
+            <a href="inv.php"><h2>Generar invitacion</h2></a>
+            <a href=""><h2>Reservar</h2></a>
+            <a href=""><h2>Pago de boletas</h2></a>
+            <a href="menu.php?logout='1'"><h2>Cerrar sesion</h2></a>
+        </div>
     <?php endif ?>
 
 </body>

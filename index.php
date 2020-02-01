@@ -5,26 +5,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Deptonnect</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div id="alignment">
-    <h1>Deptonnect</h1>
-    <form action="index.php" method="POST">
-      <?php include('error.php'); ?>
-      <p>Usuario</p>
-      <br>
-        <input type="text"  name="uname" >
-        <br>
-      <p>Contraseña</p>
-       <br>
-        <input type="password"  name="pass" >
-        <br>
-      <button type="submit" name="login">Ingresar</button>
-    </form>
-    <a href="register.php">Registrate</a>
-    <h3 id="BOTTOM">¡DESCARGA NUESTRA APP!</h3>
-    
+    <div class="header">
+      <h1>Deptonnect</h1>
+    </div>
+    <div class="title">
+      <h2>Inicia sesión</h2>
+    </div>
+    <div class="container">
+      <form action="index.php" method="POST">
+        <?php include('error.php'); ?>
+        <div class="input-group">
+          <label>Usuario</label>
+          <input type="text"  name="uname" >
+        </div>
+        <div class="input-group">
+          <label>Contraseña</label>
+          <input type="password"  name="pass" >
+        </div>
+        <div class="input-group">
+          <button type="submit" name="login">Ingresar</button>
+        </div>
+        </form>
+      <a href="register.php">Registrate</a>
+      <h3>¡DESCARGA NUESTRA APP!</h3>
     </div>
   </body>
 </html>

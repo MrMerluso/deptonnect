@@ -9,26 +9,36 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <?php include('error.php') ?>
-    <form action="register.php" method="post">
-    <p>Usuario</p>
-        <br>
-        <input type="text"  name="uname" >
-        <br>
-    <p>correo</p>
-        <br>
-        <input type="text" name = "mail">
-        <br>
     
-    <p>Contraseña</p>
-        <br>
-        <input type="password"  name="pass" >
-        <br>
-    <p>confirmar contraseña</p>
-        <br>
-        <input type="password" name="pass2">
-      <button type="submit" name="register">Registrar</button>
-    </form>
-
+    <div class="header">
+        <h1>Deptonnect</h1>
+    </div>
+    <div class="title">
+        <h2>Registrate</h2>
+    </div>
+    <div class="container">
+        <form action="register.php" method="post">
+        <?php include('error.php') ?>
+        <div class="input-group">
+            <label>Usuario</label>
+            <input type="text"  name="uname" >
+        </div>
+        <div class="input-group">
+            <label> Correo</label>
+            <input type="text" name = "mail">
+         </div>
+        <div class="input-group">
+            <label> Contraseña</label>
+            <input type="password"  name="pass" >
+        </div>    
+        <div class="input-group">
+            <label> Confirmar contraseña</label>
+            <input type="password" name="pass2">
+        </div>
+        <div class="input-group">   
+            <button type="submit" name="register">Registrar</button>
+        </div>
+        </form>
+    </div>
 </body>
 </html>

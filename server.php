@@ -1,11 +1,51 @@
 <?php 
 
+    function verificarRut($rut,$ver){
+        $rut = strrev($rut);
+        $len = strlen($rut);
+        $c = 0;
+        $mul = 2;
+        $sum = 0;
+        while($c<$len){
+          $sum += substr($rut,$c,1)*$mul;
+          if($mul == 7){
+             $mul = 2;
+          }else{
+             $mul++;
+          }
+          $c++;        
+        }
+        
+        $rest = $sum%11;
+        $dig = 11 - $rest;
+  
+        if($dig == 10){
+          $dig = "K";
+        }elseif($dig == 11){
+          $dig = 0;
+        }
+
+        if($dig == $ver){
+            return False;
+        }else{
+            return True;
+        }
+
+    }
+
     session_start();
 
+   //var invtitacion
+    $invName = "";
+    $invAp = "";
+    $invrut = "";
+    $invVer = "";
+    $invDep = "";
+
+    //var login / registro
     $username = "";
     $email = "";
     $error = array();
-    $link = "register.php";
 
     $data = mysqli_connect("localhost", "root","","zumbaos sin gold");
 
@@ -35,7 +75,7 @@
             $sql = "INSERT INTO login (user, password, mail) VALUES ('$username', '$pass', '$email')";
             mysqli_query($data, $sql);
             $_SESSION['user'] = $username;
-            $_SESSION['success'] = "Has iniciado sesion con exito";
+            $_SESSION['success'] = "Te has registrado con exito";
             header('location: menu.php');
         }
 
@@ -68,11 +108,40 @@
 
         }
     }
+
+    if(isset($_POST['invite'])){ // REGISTRO DE INVITADO EN DATABASE, TERMINAR
+        $invName = mysqli_real_escape_string($data, $_POST['nomb']) ;
+        $invAp = mysqli_real_escape_string($data, $_POST['ap']) ;
+        $invrut = mysqli_real_escape_string($data, $_POST['rut']) ;
+        $invVer = mysqli_real_escape_string($data, $_POST['ver']) ;
+        $invDep = mysqli_real_escape_string($data, $_POST['depto']) ;
+        
+        if(empty($invName) or empty($invAp)){
+            array_push($error, "Se requiere el nombre completo del invitado");
+
+        }
+        if(empty($invrut) and empty($invVer)){
+            array_push($error, "Se requiere el rut del invitado");
+
+        }
+        if(verificarRut($invrut,$invVer)){
+            array_push($error, "Ingrese un rut válido");
+
+        }
+        if(empty($invDep)){
+            array_push($error, "Ingrese el numero de su depertamento");
+
+        }
+        if(count($error) == 0){
+            $rut = $invrut.$invVer;
+            $query = "INSERT INTO invitados (nombre, apellido, rut, depto) VALUES ('$invName', '$invAp', '$rut', '$invDep')";
+            mysqli_query($data,$query);
+        }
+    }
     
     if(isset($_GET['logout'])){
         session_destroy();
         unset($_SESSION['user']);
         header('location: index.php');
     }
-
 ?>

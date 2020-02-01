@@ -1,15 +1,69 @@
-#alignment{
-    text-align: center;
-}
+/* demases */
 
 body{
     background-color: #B0EFF9;
-    margin-bottom: auto;
-    margin-top: auto;
+    font-family: Arial;
 }
 
-#qrcode{
-    height: 1000px;
-    width: 1000px;
-    margin-top: auto;
+button{
+    background-color: lightseagreen;
+    border: none;
+    text-align: center;
+    padding: 15px;
+    font-size: 20px;
+    width: 100%;
+}
+
+/* clases */
+
+.header{
+    color: white;
+    background: lightseagreen;
+    text-align: center;
+    padding: 5px;
+}
+
+.title{
+    width: 40%;
+    color: white;
+    background: lightseagreen;
+    text-align: center;
+    padding: 5px;
+    margin: 30px auto 0px;
+    border: 1px solid black;
+}
+
+.container{
+    width: 40%;
+    margin: 0px auto;
+    background-color:wheat;
+    padding: 5px;
+    border: 1px solid black;
+    border-top: 0px;
+}
+
+.input-group{
+    margin: 20px 15px 20px 15px ;
+}
+
+.input-group label{
+    text-align: left;
+}
+
+.input-group input{
+    height: 30px;
+    width: 98%;
+    padding: 5px;
+    border: 1px black;
+    font-size: 20px;
+}
+
+/* id */
+
+#ver{
+    width: 7%;
+}
+
+#rut{
+    width: 86%;
 }

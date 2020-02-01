@@ -1,3 +1,4 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,23 +8,36 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
 
-  <body> 
-    <section id="alignment">
-    <form action="" method="POST" id = "form">
-      <h1>Por favor ingrese la informacion del invitado</h1><br>
-      <p>Nombre:</p>
-      <input type="text" name="nomb" required><br>
-      <p>Apellido:</p>
-      <input type="text" name="ap" required><br>
-      <p>RUT:</p>
-      <input type="number" name="rut" required> - <input type="text" name="ver" required><br>
-      <p>Departamento que visita:</p>
-      <input type="text" name="depto" required><br><br>
-      <button type="submit" onclick="generateQR()">Invitar!</button>
-      <div id="qrcode"></div>
+  <body>
+    <div class="header">
+      <h1>Deptonnect</h1>
+    </div>
+    <div class="title">
+      <h2>Por favor ingrese la informacion del invitado</h2>
+    </div>
 
-    </form>
-    </section>
+    <div class="container">
+      <form action="inv.php" method="POST" id = "form">
+        <?php include('error.php') ?>
+        <div class="input-group">
+          <label>Nombre:</label>
+          <input type="text" name="nomb">
+        </div>
+        <div class="input-group">
+          <label>Apellido:</label>
+          <input type="text" name="ap">
+        </div>
+        <div class="input-group">
+          <label>RUT:</label><br>
+          <input type="text" name="rut" id="rut"> - <input type="text" name="ver" id="ver">
+        </div>  
+        <div class="input-group">
+          <label>Departamento que visita:</label>
+          <input type="text" name="depto">
+        </div>
+          <button type="submit" name="invite">Invitar</button>
+      </form>
+    </div>
 
   </body>
   <script src="script.js"></script>
