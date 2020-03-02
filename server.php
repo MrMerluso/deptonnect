@@ -54,6 +54,7 @@
         $email = mysqli_real_escape_string($data, $_POST["mail"]);
         $pass = mysqli_real_escape_string($data, $_POST["pass"]);
         $pass2 = mysqli_real_escape_string($data, $_POST["pass2"]);
+        
 
         if(empty($username)){
             array_push($error, "Se requiere nombre de usuario");

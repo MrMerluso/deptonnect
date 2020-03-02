@@ -8,23 +8,29 @@
     <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
+
     <div class="header">
       <h1>Deptonnect</h1>
     </div>
+    
     <div class="title">
       <h2>Inicia sesión</h2>
     </div>
+    
     <div class="container">
       <form action="index.php" method="POST">
         <?php include('error.php'); ?>
+        
         <div class="input-group">
           <label>Usuario</label>
           <input type="text"  name="uname" >
         </div>
+        
         <div class="input-group">
           <label>Contraseña</label>
           <input type="password"  name="pass" >
         </div>
+        
         <div class="input-group">
           <button type="submit" name="login">Ingresar</button>
         </div>
@@ -32,5 +38,6 @@
       <a href="register.php">Registrate</a>
       <h3>¡DESCARGA NUESTRA APP!</h3>
     </div>
+
   </body>
 </html>

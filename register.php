@@ -13,9 +13,11 @@
     <div class="header">
         <h1>Deptonnect</h1>
     </div>
+
     <div class="title">
         <h2>Registrate</h2>
     </div>
+
     <div class="container">
         <form action="register.php" method="post">
         <?php include('error.php') ?>
@@ -40,5 +42,6 @@
         </div>
         </form>
     </div>
+    
 </body>
 </html>

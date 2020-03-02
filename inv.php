@@ -17,24 +17,29 @@
     </div>
 
     <div class="container">
-      <form action="inv.php" method="POST" id = "form">
+      <form action="inv.php" method="POST" id = "">
         <?php include('error.php') ?>
+        
         <div class="input-group">
           <label>Nombre:</label>
           <input type="text" name="nomb">
         </div>
+        
         <div class="input-group">
           <label>Apellido:</label>
           <input type="text" name="ap">
         </div>
+        
         <div class="input-group">
           <label>RUT:</label><br>
           <input type="text" name="rut" id="rut"> - <input type="text" name="ver" id="ver">
         </div>  
+        
         <div class="input-group">
           <label>Departamento que visita:</label>
           <input type="text" name="depto">
         </div>
+          
           <button type="submit" name="invite">Invitar</button>
       </form>
     </div>
