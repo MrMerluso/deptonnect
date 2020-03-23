@@ -25,11 +25,15 @@
         </div>
         <div class="container">
             <a href="inv.php"><h2>Generar invitacion</h2></a>
-            <a href=""><h2>Reservar</h2></a>
-            <a href=""><h2>Pago de boletas</h2></a>
+            <a href="reserva.php"><h2>Reservar</h2></a>
+            <a href="seleccion.php"><h2>Pago de boletas</h2></a>
             <a href="menu.php?logout='1'"><h2>Cerrar sesion</h2></a>
+            <?php if(isset($_SESSION['admin'])): ?>
+            <a href="https://www.onlineocr.net/">escanear</a>
+            <?php endif ?> 
         </div>
     <?php endif ?>
+      
 
 </body>
 </html>

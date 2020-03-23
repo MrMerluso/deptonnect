@@ -35,8 +35,8 @@
           <button type="submit" name="login">Ingresar</button>
         </div>
         </form>
-      <a href="register.php">Registrate</a>
-      <h3>¡DESCARGA NUESTRA APP!</h3>
+      <a href="register.php">Registrate</a><br>
+      <a href="admin.php">Inicio administrador</a>
     </div>
 
   </body>

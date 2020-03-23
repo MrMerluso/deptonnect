@@ -33,7 +33,43 @@
 
     }
 
+    function openFile($file){
+        $fp = fopen($file,"r");
+        $line = "";
+        while (!feof($fp)){ 
+            $current_line = fgets ($fp);
+            if(!empty($current_line)){
+                $line = $line.$current_line;
+            }
+        }
+        fclose($fp);
+        return $line;
+    }
+    
+    function recogerDatos($ocr){
+        $token = strtok($ocr, "<");
+        $data = array();
+        while ($token !== false){
+            array_push($data,$token);
+            $token = strtok("<");
+        }
+        preg_match_all('!\d+!', $data[1], $matches);
+        $rut = $matches[0][2];
+        $ver = $data[2];
+        $rut = $rut."-".$ver;
+        $ap = preg_replace('/[^a-zA-Z]/', '', $data[3]);
+        $ap = $ap." ".$data[4];
+        $nom = $data[5]." ".$data[6];
+        
+        return $nom."&".$ap."&".$rut;
+    }
+
     session_start();
+
+    //var escaneo
+    $scanName = "";
+    $scanAp = "";
+    $scanRut = "";
 
    //var invtitacion
     $invName = "";
@@ -82,6 +118,7 @@
 
 
     }
+
     if(isset($_POST['login'])){
         $username = mysqli_real_escape_string($data, $_POST["uname"]);
         $pass = mysqli_real_escape_string($data, $_POST["pass"]);
@@ -137,12 +174,34 @@
             $rut = $invrut.$invVer;
             $query = "INSERT INTO invitados (nombre, apellido, rut, depto) VALUES ('$invName', '$invAp', '$rut', '$invDep')";
             mysqli_query($data,$query);
+            $_SESSION['invName'] = $invName;
+            $_SESSION['invAp'] = $invAp;
+            $_SESSION['invrut'] = $rut;
+            $_SESSION['invDep'] = $invDep;
+            header('location: inv.php?yo_mismo=test');
+        }
+    }
+
+
+    if(isset($_POST["adminAccess"])){
+        $adminName = mysqli_real_escape_string($data,$_POST["adminName"]);
+        $adminPass = md5(mysqli_real_escape_string($data,$_POST["adminPass"]));
+        $query = "SELECT * FROM admins WHERE adminName = '$adminName' AND adminPass = '$adminPass'";
+        $result = mysqli_query($data,$query);
+        if(!empty($result) AND mysqli_num_rows($result) > 0){
+            $_SESSION['user'] = $adminName;
+            $_SESSION['admin'] = $adminName;
+            $_SESSION['success'] = "Has iniciado sesion con exito";
+            header('location: menu.php');
+        }else{
+            array_push($error, "usuario o contraseña incorrectos");
         }
     }
     
     if(isset($_GET['logout'])){
         session_destroy();
         unset($_SESSION['user']);
+        unset($_SESSION['admin']);
         header('location: index.php');
     }
 ?>

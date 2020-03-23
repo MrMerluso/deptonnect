@@ -16,21 +16,23 @@ button{
 
 /* clases */
 
+
+
 .header{
-    color: white;
-    background: lightseagreen;
-    text-align: center;
-    padding: 5px;
+  color: white;
+  background: lightseagreen;
+  text-align: center;
+  padding: 5px;
 }
 
 .title{
-    width: 40%;
-    color: white;
-    background: lightseagreen;
-    text-align: center;
-    padding: 5px;
-    margin: 30px auto 0px;
-    border: 1px solid black;
+  width: 40%;
+  color: white;
+  background: lightseagreen;
+  text-align: center;
+  padding: 5px;
+  margin: 30px auto 0px;
+  border: 1px solid black;
 }
 
 .container{
